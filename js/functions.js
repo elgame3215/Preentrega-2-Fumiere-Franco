@@ -33,7 +33,7 @@ function playTurnFor(player) {
 }
 
 function showPlayerResult(player) {
-	if (player.score() <= 21) {
+	if ( player.score() <= 21 ) {
 		alert( `El jugador ${player.id} ha obtenido un puntaje de: ${player.score()}` )
 	} else {
 		alert( `El jugador ${player.id} ha obtenido un puntaje de: ${player.score()}, se pasó` )
@@ -41,16 +41,16 @@ function showPlayerResult(player) {
 }
 
 function showWinner() {
-	players.sort( (prev, next) => next.score() - prev.score() )
+	players.sort( ( prev, next ) => next.score() - prev.score() )
 	const winner = players.find( player => player.score() <= 21 )
-	if (winner == undefined) {
+	if ( winner == undefined ) {
 		alert( 'Todos se pasaron' )
 	}
-	alert(`ganador: jugador ${winner.id} con ${winner.score()} puntos`)
+	alert( `ganador: jugador ${winner.id} con ${winner.score()} puntos` )
 }
 
 function showScores() {
-	const scoresArr = players.map( player => `Jugador ${player.id}: ${player.score()} ${player.score() > 21 ? '(se pasó)': ''}`)
-	const scores = scoresArr.join('\n')
-	alert(`PUNTAJES:\n${scores}`)
+	const scoresArr = players.map( player => `Jugador ${player.id}: ${player.score()} ${player.score() > 21 ? '(se pasó)': ''}` )
+	const scores = scoresArr.join( '\n' )
+	alert( `PUNTAJES:\n${scores}` )
 }
