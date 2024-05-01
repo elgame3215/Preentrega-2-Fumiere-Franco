@@ -1,10 +1,10 @@
 function defineNumOfPlayers() {
 	let validation;
 	do {
-		numOfPlayers = prompt('Ingresar numero de jugadores (hasta 4)');
+		numOfPlayers = prompt( 'Ingresar numero de jugadores (hasta 4)' );
 		validation = 1 < numOfPlayers && numOfPlayers < 5;
-		if (!validation) {
-			alert('Ingrese un numero entre 2 y 4');
+		if ( !validation ) {
+			alert( 'Ingrese un numero entre 2 y 4' );
 			continue
 		}
 	} while ( !validation );
@@ -12,27 +12,27 @@ function defineNumOfPlayers() {
 
 function createNewPlayer() {
 	const newPlayer = new Player( players.length + 1 );
-	players.push(newPlayer);
+	players.push( newPlayer );
 }
 
-function playTurnFor(player) {
+function playTurnFor( player ) {
 	let playerStands = false;
 	do {
 		const playerTakesCard = confirm( `Jugador ${ player.id } va a pedir carta? Puede pedir: ${( 4 - player.cards.length )}\nPUNTAJE: ${ player.score() }` );
 
 		if ( playerTakesCard ){
 			player.takeCard();
-			alert( `El jugador ${player.id} obtuvo un ${player.cards[player.cards.length - 1]}` )
+			alert( `El jugador ${player.id} obtuvo un ${player.cards[ player.cards.length - 1 ]}` )
 		}
 		else {
 			playerStands = true;
 		}
 	} while ( !playerStands && player.cards.length < 4 && player.score() < 21 );
 
-	showPlayerResult(player)
+	showPlayerResult( player )
 }
 
-function showPlayerResult(player) {
+function showPlayerResult( player ) {
 	if ( player.score() <= 21 ) {
 		alert( `El jugador ${player.id} ha obtenido un puntaje de: ${player.score()}` )
 	} else {
@@ -41,9 +41,10 @@ function showPlayerResult(player) {
 }
 
 function showWinner() {
+	// ordena la lista de jugadores de mayor a menor puntaje y muestra por alert al primero que no se haya pasado.
 	players.sort( ( prev, next ) => next.score() - prev.score() )
 	const winner = players.find( player => player.score() <= 21 )
-	if ( winner == undefined ) {
+	if ( !winner ) {
 		alert( 'Todos se pasaron' )
 	}
 	alert( `ganador: jugador ${winner.id} con ${winner.score()} puntos` )
