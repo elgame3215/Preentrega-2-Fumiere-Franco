@@ -1,4 +1,5 @@
-alert( 'BlackJack: todos los jugadores juegan entre ellos, quien obtenga el mejor puntaje, gana. \nTodos comienzan con una carta' )
+alert( `BlackJack: todos los jugadores juegan entre ellos, quien obtenga el mejor puntaje, gana. 
+Todos comienzan con una carta` )
 const players = [];
 let numOfPlayers;
 

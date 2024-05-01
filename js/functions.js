@@ -19,8 +19,7 @@ function playTurnFor(player) {
 	player.takeCard();
 	let playerStands = false;
 	do {
-		const playerTakesCard = confirm( `Jugador ${ player.id } va a pedir carta? Puede pedir: ${( 4 - player.cards.length )} \n
-		PUNTAJE: ${ player.score }` );
+		const playerTakesCard = confirm( `Jugador ${ player.id } va a pedir carta? Puede pedir: ${( 4 - player.cards.length )}\nPUNTAJE: ${ player.score }` );
 
 		if ( playerTakesCard ){
 			player.takeCard();
@@ -52,7 +51,7 @@ function showWinner() {
 }
 
 function showScores() {
-	const scoresArr = players.map( player => `Jugador ${player.id}: ${player.score}`)
+	const scoresArr = players.map( player => `Jugador ${player.id}: ${player.score} ${player.score > 21 ? '(se pasó)': ''}`)
 	const scores = scoresArr.join('\n')
-	alert(`PUNTAJES: \n ${scores}`)
+	alert(`PUNTAJES:\n${scores}`)
 }
