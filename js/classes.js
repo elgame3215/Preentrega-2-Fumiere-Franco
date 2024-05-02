@@ -7,7 +7,6 @@ class Player {
 		const playerNewCard = Math.ceil( Math.random() * 11 );
 		this.cards.push( playerNewCard )
 	}
-	
 	score() {
 		return this.cards.reduce( ( prev, next ) => prev + next )
 	}
